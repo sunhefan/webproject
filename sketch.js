@@ -234,7 +234,9 @@ let animating = false;
 
 let canvas;
 //let h1;
-let button;
+let startRandomizerButton;
+let addMoreButton;
+let clickHereButton;
 
 let slider;
 let inputs =[];
@@ -259,15 +261,19 @@ function setup() {
   //  h1=createElement('h1', 'This is Lydia');
 
 
-  button = select ('#randButton');
-  button.mousePressed(buttonSetTime);
-  button.class("randomizeButton");
+  startRandomizerButton = select ('#randButton');
+  startRandomizerButton.mousePressed(buttonSetTime);
+  //button.class("randomizeButton");
+  addMoreButton = select ('#addMoreButton');
+  addMoreButton.mousePressed(addAnotherField);
 
-  button.mouseOver(overclickhere);
+ // clickHereButton = select('#clickHereButton');
+ // clickHereButton.mousePressed(popUpImage);
+  //button.mouseOver(overclickhere);
 
-for (let i=0; i<9; i++){
+for (let i=0; i<1; i++){
   inputs.push(createInput());
-  inputs[inputs.length-1].parent("inputField");
+  inputs[inputs.length-1].parent("#inputField");
 
 }
 
@@ -305,15 +311,16 @@ for (let i=0; i<9; i++){
 
 
 
-function overclickhere() {
-  button.style('color', 'white');
-}
+// function overclickhere() {
+//   button.style('color', 'white');
+// }
 
 
 
 function draw() {
 
   fill(frameCount % 180, 100, 100);
+
   // noStroke();
   if (animating == true) {
     clear();
@@ -333,6 +340,18 @@ function draw() {
 }
 
 
+function addAnotherField (){
+  inputs.push(createInput());
+  inputs[inputs.length-1].parent("#inputField");
+}
+
+
+// function popUpImage(){
+//   let body;
+//     body=select('body');
+//     body.style('background-image', "url('images/popup.jpg')");
+//
+// }
 
 
 function randomizer() {
